@@ -631,6 +631,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
 
         menuFile.setText("File");
 
+        menuitemNewDFA.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         menuitemNewDFA.setText("New DFA");
         menuitemNewDFA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -639,6 +640,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
         });
         menuFile.add(menuitemNewDFA);
 
+        menuitemOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         menuitemOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/iconopenfile.png"))); // NOI18N
         menuitemOpen.setText("Open File...");
         menuitemOpen.addActionListener(new java.awt.event.ActionListener() {
@@ -648,6 +650,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
         });
         menuFile.add(menuitemOpen);
 
+        menuitemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         menuitemSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/iconsavefile.png"))); // NOI18N
         menuitemSave.setText("Save File...");
         menuitemSave.addActionListener(new java.awt.event.ActionListener() {
@@ -658,7 +661,8 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
         menuFile.add(menuitemSave);
         menuFile.add(jSeparator4);
 
-        menuitemExit.setText("Exit");
+        menuitemExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        menuitemExit.setText("Quit");
         menuitemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuitemExitActionPerformed(evt);
@@ -670,6 +674,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
 
         menuDFA.setText("DFA");
 
+        menuitemProperties.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         menuitemProperties.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/sum.png"))); // NOI18N
         menuitemProperties.setText("Description and definition...");
         menuitemProperties.addActionListener(new java.awt.event.ActionListener() {
@@ -679,6 +684,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
         });
         menuDFA.add(menuitemProperties);
 
+        menuitemAutocomplete.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         menuitemAutocomplete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/bulb_add.png"))); // NOI18N
         menuitemAutocomplete.setText("Autocomplete transitions...");
         menuitemAutocomplete.addActionListener(new java.awt.event.ActionListener() {
@@ -699,6 +705,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
         menuDFA.add(menuItemMinimizeDfa);
         menuDFA.add(jSeparator1);
 
+        menuitemExportImage.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         menuitemExportImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/mime_png.png"))); // NOI18N
         menuitemExportImage.setText("Image export");
         menuitemExportImage.addActionListener(new java.awt.event.ActionListener() {
@@ -717,6 +724,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
             }
         });
 
+        menuitemStartSim.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
         menuitemStartSim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/arrow_go.png"))); // NOI18N
         menuitemStartSim.setText("Start simulation");
         menuitemStartSim.setEnabled(false);
@@ -727,6 +735,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
         });
         menuSimulation.add(menuitemStartSim);
 
+        menuItemStopSim.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
         menuItemStopSim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/sign_stop.png"))); // NOI18N
         menuItemStopSim.setText("Stop simulation");
         menuItemStopSim.setEnabled(false);

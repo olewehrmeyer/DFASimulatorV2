@@ -46,6 +46,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemNewDFA">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+N"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="New DFA"/>
               </Properties>
               <Events>
@@ -54,6 +57,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemOpen">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+O"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/iconopenfile.png"/>
                 </Property>
@@ -65,6 +71,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemSave">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+S"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/iconsavefile.png"/>
                 </Property>
@@ -78,7 +87,10 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemExit">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Exit"/>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Q"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Quit"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuitemExitActionPerformed"/>
@@ -93,6 +105,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemProperties">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+D"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/sum.png"/>
                 </Property>
@@ -104,6 +119,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemAutocomplete">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/bulb_add.png"/>
                 </Property>
@@ -129,6 +147,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemExportImage">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+E"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/mime_png.png"/>
                 </Property>
@@ -150,6 +171,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuitemStartSim">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Shift+S"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/arrow_go.png"/>
                 </Property>
@@ -162,6 +186,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemStopSim">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Alt+S"/>
+                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/gui/img/sign_stop.png"/>
                 </Property>
