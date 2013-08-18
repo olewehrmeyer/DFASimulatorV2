@@ -11,6 +11,8 @@ import java.awt.Toolkit;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,14 +23,15 @@ public class DFAInfoWin extends javax.swing.JDialog {
     /**
      * Width of the window
      */
-    private static final int WINDOW_WIDTH = 540;
+    private static final int WINDOW_WIDTH = 650;
     /**
      * Height of the window
      */
-    private static final int WINDOW_HEIGHT = 330;
+    private static final int WINDOW_HEIGHT = 420;
 
     /** Project website URI */
     String websiteUri = "http://code.google.com/p/dfasimjoensuu/";
+    String newSourceCode = "https://github.com/Belogron/DFASimulatorV2";
 
     /** Creates new form DFAMainWIn */
     public DFAInfoWin() {
@@ -63,11 +66,13 @@ public class DFAInfoWin extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("DFA Simulator");
+        setTitle("DFA Simulator - Info");
         setAlwaysOnTop(true);
-        setBounds(new java.awt.Rectangle(0, 0, 400, 400));
+        setBounds(new java.awt.Rectangle(0, 0, 800, 800));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -93,7 +98,7 @@ public class DFAInfoWin extends javax.swing.JDialog {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(430, 350, 90, 40);
+        jButton1.setBounds(548, 340, 90, 40);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("University of Joensuu, Finland");
@@ -103,7 +108,7 @@ public class DFAInfoWin extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Originally Student project of the Object Orientated Programming Course.");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(30, 220, 500, 17);
+        jLabel8.setBounds(30, 210, 500, 17);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Version 1.1, August 2013");
@@ -134,7 +139,7 @@ public class DFAInfoWin extends javax.swing.JDialog {
             }
         });
         getContentPane().add(labelWebsiteUri);
-        labelWebsiteUri.setBounds(260, 290, 260, 17);
+        labelWebsiteUri.setBounds(290, 290, 348, 17);
 
         jLabel6.setText("Modifications made by Ole Wehrmeyer");
         getContentPane().add(jLabel6);
@@ -146,7 +151,21 @@ public class DFAInfoWin extends javax.swing.JDialog {
 
         jLabel13.setText("Now developed as a tool for Theoretical IT Course in Germany");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(30, 240, 490, 16);
+        jLabel13.setBounds(30, 230, 490, 16);
+
+        jLabel9.setText("Check out new versions source code:");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(30, 310, 260, 16);
+
+        jLabel14.setText(this.newSourceCode);
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(296, 310, 342, 16);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -164,6 +183,16 @@ public class DFAInfoWin extends javax.swing.JDialog {
             ex.printStackTrace();
         }
     }//GEN-LAST:event_labelWebsiteUriMouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        try {
+            URI website = new URI(this.newSourceCode);
+            openUriInBrowser(website);
+        } catch (URISyntaxException ex) {
+            ex.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     /**
      * Opens an URI in the system default browser.
@@ -210,6 +239,7 @@ public class DFAInfoWin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -217,6 +247,7 @@ public class DFAInfoWin extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel labelWebsiteUri;
     // End of variables declaration//GEN-END:variables
 }
