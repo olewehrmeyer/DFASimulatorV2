@@ -1016,6 +1016,7 @@ public class DFAMainWin extends javax.swing.JFrame implements Observer {
     private void buttonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonResetActionPerformed
         textareaInputWord.setEditable(true);
         textareaOutput.setText("");
+        outputText.setText("");
         buttonNextStep.setEnabled(true);
         buttonSimulateAll.setEnabled(true);
         dfaSim.resetDfa();
