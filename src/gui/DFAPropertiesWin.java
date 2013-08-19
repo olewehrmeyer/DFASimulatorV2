@@ -304,48 +304,48 @@ public class DFAPropertiesWin extends JDialog {
     }
 
     private void loadData() {
-        this.textDescription.setText(this.dfa.getDescription());
+      this.textDescription.setText(this.dfa.getDescription());
 
-        ArrayList alphabet = getdFAMainWin().getDfaSim().getAlphabetFromTransitions();
-        String s = getCommaStringFromArrayList(alphabet);
-        this.textAlphabet.setText("{" + s + "}");
+      ArrayList alphabet = getdFAMainWin().getDfaSim().getAlphabetFromTransitions();
+      String s = getCommaStringFromArrayList(alphabet);
+      this.textAlphabet.setText("{" + s + "}");
 
-        String startState = "<html><i>none</i></html>";
-        if (this.dfa.getStartState() != null) {
-          startState = this.dfa.getStartState().getState_Properties().getName();
-        }
-        this.labelstartstate.setText(startState);
+      String startState = "<html><i>none</i></html>";
+      if (this.dfa.getStartState() != null) {
+        startState = this.dfa.getStartState().getState_Properties().getName();
+      }
+      this.labelstartstate.setText(startState);
 
-        ArrayList listStates = new ArrayList();
-        for (int i = 0; i < this.dfa.getStates().size(); i++) {
+      ArrayList listStates = new ArrayList();
+      for (int i = 0; i < this.dfa.getStates().size(); i++) {
+        listStates.add(((State)this.dfa.getStates().get(i)).getState_Properties().getName());
+      }
+      this.textstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
+
+      listStates = new ArrayList();
+      for (int i = 0; i < this.dfa.getStates().size(); i++) {
+        if (((State)this.dfa.getStates().get(i)).getIsFinalState()) {
           listStates.add(((State)this.dfa.getStates().get(i)).getState_Properties().getName());
         }
-        this.textstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
-
-        listStates = new ArrayList();
-        for (int i = 0; i < this.dfa.getStates().size(); i++) {
-          if (((State)this.dfa.getStates().get(i)).getIsFinalState()) {
-            listStates.add(((State)this.dfa.getStates().get(i)).getState_Properties().getName());
-          }
-        }
-        this.textacceptingstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
-
-        this.tm = new DfaTransitionTableModel();
-        this.tm.setAlphabet(alphabet);
-        this.tm.setDfa(this.dfa);
-        this.tableDelta.setModel(this.tm);
-        JTableHeader th = this.tableDelta.getTableHeader();
-        TableColumnModel tcm = th.getColumnModel();
-        for (int i = 0; i < tcm.getColumnCount(); i++) {
-          TableColumn tc = tcm.getColumn(i);
-          if (i == 0)
-            tc.setHeaderValue("δ");
-          else {
-            tc.setHeaderValue(alphabet.get(i - 1));
-          }
-        }
-        th.repaint();
       }
+      this.textacceptingstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
+
+      this.tm = new DfaTransitionTableModel();
+      this.tm.setAlphabet(alphabet);
+      this.tm.setDfa(this.dfa);
+      this.tableDelta.setModel(this.tm);
+      JTableHeader th = this.tableDelta.getTableHeader();
+      TableColumnModel tcm = th.getColumnModel();
+      for (int i = 0; i < tcm.getColumnCount(); i++) {
+        TableColumn tc = tcm.getColumn(i);
+        if (i == 0)
+          tc.setHeaderValue("δ");
+        else {
+          tc.setHeaderValue(alphabet.get(i - 1));
+        }
+      }
+      th.repaint();
+    }
 
     
     public void tableToFile(File file) {
