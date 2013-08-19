@@ -51,12 +51,22 @@ public class DfaTransitionTableModel extends AbstractTableModel {
 
     private String getEntry(int row, int col)
     {
-        String s = "";
+      String s = "";
 
-        State state = dfa.getStates().get(row);
-        State toState = state.getTargetState(alphabet.get(col));
-        if (toState != null)
+      State state = (State)this.dfa.getStates().get(row);
+      State toState = state.getTargetState((String)this.alphabet.get(col));
+
+      if (toState != null)
         s = toState.getState_Properties().getName();
-        return s;
+      try
+      {
+        Transition trans = state.getOutgoingTransition(toState);
+        if ((trans.getOutput() != null) && 
+          (!trans.getOutput().equals("")))
+          s = s + " | " + trans.getOutput();
+      }
+      catch (NoSuchTransitionException ex) {
+      }
+      return s;
     }
 }

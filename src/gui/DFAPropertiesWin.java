@@ -27,6 +27,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import models.Dfa;
 import models.DfaTransitionTableModel;
+import models.State;
 
 /**
  *
@@ -303,51 +304,49 @@ public class DFAPropertiesWin extends JDialog {
     }
 
     private void loadData() {
-        textDescription.setText(dfa.getDescription());
+        this.textDescription.setText(this.dfa.getDescription());
 
-        ArrayList<String> alphabet = getdFAMainWin().getDfaSim().getAlphabetFromTransitions();
+        ArrayList alphabet = getdFAMainWin().getDfaSim().getAlphabetFromTransitions();
         String s = getCommaStringFromArrayList(alphabet);
-        textAlphabet.setText("{" + s + "}");
+        this.textAlphabet.setText("{" + s + "}");
 
         String startState = "<html><i>none</i></html>";
-        if (dfa.getStartState() != null) {
-            startState = dfa.getStartState().getState_Properties().getName();
+        if (this.dfa.getStartState() != null) {
+          startState = this.dfa.getStartState().getState_Properties().getName();
         }
-        labelstartstate.setText(startState);
+        this.labelstartstate.setText(startState);
 
-        ArrayList<String> listStates = new ArrayList<String>();
-        for (int i = 0; i < dfa.getStates().size(); i++) {
-            listStates.add(dfa.getStates().get(i).getState_Properties().getName());
+        ArrayList listStates = new ArrayList();
+        for (int i = 0; i < this.dfa.getStates().size(); i++) {
+          listStates.add(((State)this.dfa.getStates().get(i)).getState_Properties().getName());
         }
-        textstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
+        this.textstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
 
-        listStates = new ArrayList<String>();
-        for (int i = 0; i < dfa.getStates().size(); i++) {
-            if (dfa.getStates().get(i).getIsFinalState()) {
-                listStates.add(dfa.getStates().get(i).getState_Properties().getName());
-            }
+        listStates = new ArrayList();
+        for (int i = 0; i < this.dfa.getStates().size(); i++) {
+          if (((State)this.dfa.getStates().get(i)).getIsFinalState()) {
+            listStates.add(((State)this.dfa.getStates().get(i)).getState_Properties().getName());
+          }
         }
-        textacceptingstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
+        this.textacceptingstates.setText("{" + getCommaStringFromArrayList(listStates) + "}");
 
-
-
-        //-- table --
-        tm = new DfaTransitionTableModel();
-        tm.setAlphabet(alphabet);
-        tm.setDfa(dfa);
-        tableDelta.setModel(tm);
-        JTableHeader th = tableDelta.getTableHeader();
+        this.tm = new DfaTransitionTableModel();
+        this.tm.setAlphabet(alphabet);
+        this.tm.setDfa(this.dfa);
+        this.tableDelta.setModel(this.tm);
+        JTableHeader th = this.tableDelta.getTableHeader();
         TableColumnModel tcm = th.getColumnModel();
         for (int i = 0; i < tcm.getColumnCount(); i++) {
-            TableColumn tc = tcm.getColumn(i);
-            if (i == 0) {
-                tc.setHeaderValue("\u03B4");
-            } else {
-                tc.setHeaderValue(alphabet.get(i - 1));
-            }
+          TableColumn tc = tcm.getColumn(i);
+          if (i == 0)
+            tc.setHeaderValue("δ");
+          else {
+            tc.setHeaderValue(alphabet.get(i - 1));
+          }
         }
         th.repaint();
-    }
+      }
+
     
     public void tableToFile(File file) {
         
@@ -361,13 +360,13 @@ public class DFAPropertiesWin extends JDialog {
             TableColumnModel tcm = th.getColumnModel();
             for (int i = 0;i<tm.getColumnCount();i++ ) {
                 TableColumn tc = tcm.getColumn(i);
-                outFile.write(tc.getHeaderValue() + "\t");
+                outFile.write("\""+tc.getHeaderValue() + "\""+((tm.getColumnCount()-1)==i ? "" : ","));
             }
             outFile.write("\n");
             
             for (int i=0; i<tm.getRowCount();i++) {
                 for(int j=0; j<tm.getColumnCount();j++) {
-                    outFile.write(tm.getValueAt(i,j).toString() + "\t");
+                    outFile.write("\""+tm.getValueAt(i,j).toString() + "\""+((tm.getColumnCount()-1)==j ? "" : ","));
                 }
                 outFile.write("\n");
             }
