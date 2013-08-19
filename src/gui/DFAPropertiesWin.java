@@ -271,18 +271,21 @@ public class DFAPropertiesWin extends JDialog {
         fc.setFileFilter(new FileFilter() {
                 @Override
                 public boolean accept(File f) {
-                    return f.getName().toLowerCase().endsWith(".tsv") || f.isDirectory();
+                    return f.getName().toLowerCase().endsWith(".csv") || f.isDirectory();
                 }
                 @Override
                 public String getDescription() {
-                    return "Tab Seperated Value(*.tsv)";
+                    return "Comma Seperated Value(*.csv)";
                 }
             });
         fc.setMultiSelectionEnabled(false);
         int retVal = fc.showSaveDialog(this);
         if (retVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
-            tableToFile(file);
+            if(file.getAbsolutePath().endsWith(".csv"))
+              tableToFile(file);
+            else
+              tableToFile(new File(file.getAbsolutePath()+".csv"));
 
         }
     }//GEN-LAST:event_exportTableBtnActionPerformed
